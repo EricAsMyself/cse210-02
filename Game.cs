@@ -1,8 +1,6 @@
 
+namespace cse210{
 
-using cse210;
-
-namespace Changethis{
     class Game{
         private bool keepPlaying;
         private GameInformation _gameInformation;
@@ -15,8 +13,9 @@ namespace Changethis{
         public void PlayGame(){
             while (keepPlaying){
                 Console.WriteLine($"the card is :{_gameInformation.GetCurrentCard()}");
+                _gameInformation.SetNextCard();
                 HigherLower();
-                Console.WriteLine($"next card is :{_gameInformation.GetCurrentCard()}");
+                Console.WriteLine($"next card is :{_gameInformation.GetNextCard()}");
                 Console.WriteLine($"next card is :{_gameInformation.GetCurrentCard()}");
             }
 
