@@ -53,6 +53,7 @@ namespace cse210
         /// </summary>
         public void SetNextCard()
         {
+            _cardIndex = _nextCard;
             _nextCard = _random.Next(0, 12);
         }
 
