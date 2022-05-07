@@ -4,18 +4,20 @@ namespace cse210{
     class Game{
         private bool keepPlaying;
         private GameInformation _gameInformation;
+        private string userInput;
 
         public Game()
         {
             this.keepPlaying = true;
             _gameInformation = new GameInformation();
+            userInput = "None";
         }
         public void PlayGame(){
             while (keepPlaying){
                 Console.WriteLine($"the card is :{_gameInformation.GetCurrentCard()}");
                 HigherLower();
                 Console.WriteLine($"next card was :{_gameInformation.GetNextCard()}");
-                Console.WriteLine($"next card is :{_gameInformation.GetScore()}");               
+                Console.WriteLine($"Your current score is :{_gameInformation.GetScore()}");               
                 keepPlaying = UserInputContinue();
                 _gameInformation.SetNextCard();
             }
@@ -23,8 +25,9 @@ namespace cse210{
         }
         
         public void HigherLower(){
-            Console.WriteLine("Higher or Lower? :");
-            if (Console.ReadLine() == "Higher" && _gameInformation.CheckScore()|| (Console.ReadLine() == "Lower" && _gameInformation.CheckScore() == false)){
+            Console.WriteLine("Higher or Lower?(h/l) :");
+            userInput = Console.ReadLine();
+            if (userInput == "h" && _gameInformation.CheckScore() == true || (userInput == "l" && _gameInformation.CheckScore() == false)){
                 _gameInformation.SetScore(100);
             }
             else{
