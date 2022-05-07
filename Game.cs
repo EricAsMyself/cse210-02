@@ -27,11 +27,11 @@ namespace cse210{
         public void HigherLower(){
             Console.WriteLine("Higher or Lower?(h/l) :");
             userInput = Console.ReadLine();
-            if (userInput == "h" && _gameInformation.CheckScore() == true || (userInput == "l" && _gameInformation.CheckScore() == false)){
-                _gameInformation.SetScore(100);
+            if (userInput == "h" && _gameInformation.CheckScore() || (userInput == "l" && _gameInformation.CheckScore() == false)){
+                _gameInformation.SetScore(-75);
             }
             else{
-                _gameInformation.SetScore(-75);
+                _gameInformation.SetScore(100);
             }
         }
         public bool UserInputContinue(){
