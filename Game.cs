@@ -13,28 +13,36 @@ namespace cse210{
         public void PlayGame(){
             while (keepPlaying){
                 Console.WriteLine($"the card is :{_gameInformation.GetCurrentCard()}");
-                _gameInformation.SetNextCard();
                 HigherLower();
-                Console.WriteLine($"next card is :{_gameInformation.GetNextCard()}");
-                Console.WriteLine($"next card is :{_gameInformation.GetCurrentCard()}");
+                Console.WriteLine($"next card was :{_gameInformation.GetNextCard()}");
+                Console.WriteLine($"next card is :{_gameInformation.GetScore()}");               
+                keepPlaying = UserInputContinue();
+                _gameInformation.SetNextCard();
             }
 
         }
         
-        public String HigherLower(){
-            Console.WriteLine("HIgher or Lower? :");
-            return Console.ReadLine();
+        public void HigherLower(){
+            Console.WriteLine("Higher or Lower? :");
+            if (Console.ReadLine() == "Higher" && _gameInformation.CheckScore()|| (Console.ReadLine() == "Lower" && _gameInformation.CheckScore() == false)){
+                _gameInformation.SetScore(100);
+            }
+            else{
+                _gameInformation.SetScore(-75);
+            }
         }
+        public bool UserInputContinue(){
+            Console.WriteLine("Do you want to continue (y/n)?");
+            if (Console.ReadLine() == "y"){            
+                return true;    
+            }
+            else{
+                return false;
+            }
+        }
+
 
     }
 
 
 }
-
-
-// int GetCurrentCard() -> returns currently selected card
-// int GetNextCard() -> returns next card in queue
-// void SetNextCard() -> 
-// int GetScore() -> returns current score value
-// void SetScore(int value) -> adds/subtracts value from current score value
-// bool CheckScore() -> returns true if next card is higher than current card
