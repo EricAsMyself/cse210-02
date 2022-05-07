@@ -1,33 +1,30 @@
 
 
+using cse210;
+
 namespace Changethis{
     class Game{
         private bool keepPlaying;
+        private GameInformation _gameInformation;
 
-        public void Game(){
+        public Game()
+        {
             this.keepPlaying = true;
+            _gameInformation = new GameInformation();
         }
         public void PlayGame(){
             while (keepPlaying){
-                Console.WriteLine($"the card is :{CurrentCard()}");
+                Console.WriteLine($"the card is :{_gameInformation.GetCurrentCard()}");
                 HigherLower();
-                Console.WriteLine($"next card is :{CurrentCard()}");
-                Console.WriteLine($"next card is :{CurrentScore()}");
+                Console.WriteLine($"next card is :{_gameInformation.GetCurrentCard()}");
+                Console.WriteLine($"next card is :{_gameInformation.GetCurrentCard()}");
             }
 
         }
-        public int CurrentCard(){
-            return GameInformation.GetCurrentCard();
-        }
+        
         public String HigherLower(){
             Console.WriteLine("HIgher or Lower? :");
             return Console.ReadLine();
-        }
-        public void NextCard(){
-            return GameInformation.GetNextCard();
-        }
-        public void CurrentScore(){
-            return GameInfromation.CheckScore();
         }
 
     }
