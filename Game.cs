@@ -13,6 +13,10 @@ namespace cse210{
             userInput = "None";
         }
         public void PlayGame(){
+            /// <summary>
+            /// Prints out the console, and call appropriate functions.
+            /// </summary>
+            /// <returns> in loop until finnished</returns>
             while (keepPlaying){
                 Console.WriteLine($"the card is :{_gameInformation.GetCurrentCard()}");
                 HigherLower();
@@ -25,6 +29,10 @@ namespace cse210{
         }
         
         public void HigherLower(){
+            /// <summary>
+            /// Check's score, and compares against the user input
+            /// </summary>
+            /// <setscore>int</setscore>
             Console.WriteLine("Higher or Lower?(h/l) :");
             userInput = Console.ReadLine();
             if (userInput == "h" && _gameInformation.CheckScore() || (userInput == "l" && _gameInformation.CheckScore() == false)){
@@ -35,6 +43,10 @@ namespace cse210{
             }
         }
         public bool UserInputContinue(){
+            /// <summary>
+            /// Gets the user input
+            /// </summary>
+            /// <returns>bool</returns>
             Console.WriteLine("Do you want to continue (y/n)?");
             if (Console.ReadLine() == "y"){            
                 return true;    
