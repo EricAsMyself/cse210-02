@@ -40,6 +40,7 @@ namespace cse210{
                 return true;    
             }
             else{
+                Console.WriteLine($"your score is {_gameInformation.GetScore()}, thanks for playing.");
                 return false;
             }
         }
