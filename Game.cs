@@ -47,20 +47,8 @@ namespace cse210{
                 _gameInformation.SetScore(100);
             }
         }
-        public bool UserInputContinue(){
-            /// <summary>
-            /// Gets the user input
-            /// </summary>
-            /// <returns>bool</returns>
-            Console.WriteLine("Do you want to continue (y/n)?");
-            if (Console.ReadLine() == "y"){            
-                return true;    
-            }
-            else{
-                Console.WriteLine($"your score is {_gameInformation.GetScore()}, thanks for playing.");
-                return false;
-            }
-        }
+        
+
 
 
     }
